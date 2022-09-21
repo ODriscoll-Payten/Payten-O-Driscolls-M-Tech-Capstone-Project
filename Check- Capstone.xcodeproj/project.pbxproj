@@ -16,9 +16,10 @@
 		4A093DDE28C8E3E1003C2584 /* Check__CapstoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DDD28C8E3E1003C2584 /* Check__CapstoneUITestsLaunchTests.swift */; };
 		4A093DEF28C8E5EB003C2584 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DEE28C8E5EB003C2584 /* DataController.swift */; };
 		4A093DF228C8E99D003C2584 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DF028C8E99D003C2584 /* ToDo.xcdatamodeld */; };
-		4A093DF628C8ED19003C2584 /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DF528C8ED19003C2584 /* AddToDoView.swift */; };
+		4A093DF628C8ED19003C2584 /* }|.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DF528C8ED19003C2584 /* }|.swift */; };
 		4A093DF828C8F240003C2584 /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DF728C8F240003C2584 /* TimeFormatting.swift */; };
 		4A093DFA28C9005C003C2584 /* EditToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093DF928C9005C003C2584 /* EditToDoView.swift */; };
+		4A093E3B28D22B0D003C2584 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A093E3A28D22B0D003C2584 /* ToDoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +52,10 @@
 		4A093DDD28C8E3E1003C2584 /* Check__CapstoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check__CapstoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4A093DEE28C8E5EB003C2584 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		4A093DF128C8E99D003C2584 /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
-		4A093DF528C8ED19003C2584 /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
+		4A093DF528C8ED19003C2584 /* }|.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "}|.swift"; sourceTree = "<group>"; };
 		4A093DF728C8F240003C2584 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		4A093DF928C9005C003C2584 /* EditToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditToDoView.swift; sourceTree = "<group>"; };
+		4A093E3A28D22B0D003C2584 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				4A093DEE28C8E5EB003C2584 /* DataController.swift */,
+				4A093E3A28D22B0D003C2584 /* ToDoList.swift */,
 				4A093DF028C8E99D003C2584 /* ToDo.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -152,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				4A093DC228C8E3E0003C2584 /* ContentView.swift */,
-				4A093DF528C8ED19003C2584 /* AddToDoView.swift */,
+				4A093DF528C8ED19003C2584 /* }|.swift */,
 				4A093DF928C9005C003C2584 /* EditToDoView.swift */,
 			);
 			path = Views;
@@ -298,7 +301,8 @@
 			files = (
 				4A093DC328C8E3E0003C2584 /* ContentView.swift in Sources */,
 				4A093DFA28C9005C003C2584 /* EditToDoView.swift in Sources */,
-				4A093DF628C8ED19003C2584 /* AddToDoView.swift in Sources */,
+				4A093DF628C8ED19003C2584 /* }|.swift in Sources */,
+				4A093E3B28D22B0D003C2584 /* ToDoList.swift in Sources */,
 				4A093DEF28C8E5EB003C2584 /* DataController.swift in Sources */,
 				4A093DC128C8E3E0003C2584 /* Check__CapstoneApp.swift in Sources */,
 				4A093DF228C8E99D003C2584 /* ToDo.xcdatamodeld in Sources */,

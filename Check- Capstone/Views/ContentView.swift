@@ -13,7 +13,7 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.importance, order: .reverse)]) var toDo: FetchedResults<ToDo>
     
     @State private var showingAddView = false
-    
+    @State private var importanceLvl = "Importance Level"
     
     var body: some View {
         NavigationView{
@@ -28,7 +28,8 @@ struct ContentView: View {
                                         .bold()
                                     
                                     
-                                    Text("Importance Level").foregroundColor(.red) +
+                                    Text(importanceLvl)
+                                        .foregroundColor(.red) +
                                     Text(" \(Int(toDo.importance))").foregroundColor(.red)
                                 }
                                 Spacer()
@@ -36,12 +37,13 @@ struct ContentView: View {
                                     .foregroundColor(.gray)
                                     .italic()
                             }
+                            
                         }
                         
                     }
                     .onDelete(perform: deleteToDo)
                 }
-                .listStyle(.plain)
+                
             }
             .navigationTitle("ToDo")
             .toolbar {

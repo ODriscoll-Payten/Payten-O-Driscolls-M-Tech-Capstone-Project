@@ -38,7 +38,7 @@ class DataController: ObservableObject {
         save(context: context)
     }
     
-    func editToDo(toDo: ToDo, title: String, importance: Double, context: NSManagedObjectContext) {
+    func editToDo(toDo: ToDo, title: String, importance: Double, context: NSManagedObjectContext) { 
         toDo.date = Date()
         toDo.title = title
         toDo.importance = importance
