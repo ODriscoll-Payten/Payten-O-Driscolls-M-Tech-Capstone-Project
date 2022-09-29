@@ -11,9 +11,11 @@ struct AddView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var listViewModel: ListViewModel
+    @Environment(\.managedObjectContext) private var viewContext
+
     
-    @State var textFieldText: String = ""
+//    @State var newToDoName: String = ""
+    @EnvironmentObject var listViewModel: ListViewModel
     
     @State var alertTitle : String = ""
     @State var showAlert: Bool = false
@@ -21,7 +23,7 @@ struct AddView: View {
     var body: some View {
         ScrollView {
             VStack {
-                TextField("Type something here..", text: $textFieldText)
+                TextField("Type something here..", text: $listViewModel.newToDoName)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .background(Color(.systemGray5))
@@ -36,6 +38,7 @@ struct AddView: View {
                         .background(Color.accentColor)
                         .cornerRadius(10)
                 })
+                
             }
             .padding(16)
         }
@@ -45,14 +48,15 @@ struct AddView: View {
     
     func saveButtonPressed() {
         if textIsAppropriate() {
-            listViewModel.addItem(title: textFieldText)
-            listViewModel.saveItems()
+            
+            addToDo()
+            
             presentationMode.wrappedValue.dismiss()
         }
     }
     
     func textIsAppropriate() -> Bool {
-        if textFieldText.count < 3 {
+        if listViewModel.newToDoName.count < 3 {
             alertTitle = "Your new ToDo item must be at least 3 characters long 😨"
             showAlert.toggle()
             return false
@@ -62,6 +66,16 @@ struct AddView: View {
     
     func getAlert() -> Alert {
         return Alert(title: Text(alertTitle))
+    }
+    
+    private func addToDo() {
+        withAnimation {
+            let newToDo = ToDo(context: viewContext)
+            newToDo.name = listViewModel.newToDoName
+            
+            listViewModel.currentList!.addToToDos(newToDo)
+            PersistenceController.shared.saveContext()
+        }
     }
     
 }

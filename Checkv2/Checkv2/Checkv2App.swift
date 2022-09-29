@@ -17,8 +17,10 @@ import SwiftUI
  */
 @main
 struct Checkv2App: App {
+    @Environment(\.scenePhase ) var scenephase
     
     @StateObject var listViewModel : ListViewModel = ListViewModel()
+    let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
@@ -26,6 +28,9 @@ struct Checkv2App: App {
                 ListView()
             }
             .environmentObject(listViewModel)
+            .environment(\.managedObjectContext, persistenceController.viewContext)
+        }.onChange(of: scenephase) { _ in
+            persistenceController.saveContext()
         }
     }
 }

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ListRowView: View {
     
-    let item: ItemModel
+    let toDo: ToDo
     
     var body: some View {
         HStack{
-            Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
-                .foregroundColor(item.isCompleted ? .green : .red)
-            Text(item.title)
+            Image(systemName: toDo.isCompleted ? "checkmark.circle" : "circle")
+                .foregroundColor(toDo.isCompleted ? .green : .red)
+            Text(toDo.unwrappedName )
             Spacer()
         }
         .font(.title2)
@@ -25,13 +25,17 @@ struct ListRowView: View {
 
 struct ListRowView_Previews: PreviewProvider {
     
-    static var item1 = ItemModel(title: "First item!", isCompleted: false)
-    static var item2 = ItemModel(title: "Second item", isCompleted: true)
-    
     static var previews: some View {
+        let viewContext = PersistenceController.preview.container.viewContext
+        
+         let item1 = ToDo(context: viewContext)
+        
+         let item2 = ToDo(context: viewContext)
+        
+        
         Group{
-            ListRowView(item: item1)
-            ListRowView(item: item2)
+            ListRowView(toDo: item1)
+            ListRowView(toDo: item2)
         }
         .previewLayout(.sizeThatFits)
     }

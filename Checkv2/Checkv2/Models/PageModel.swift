@@ -8,9 +8,15 @@
 import Foundation
 
 struct Page: Codable, Identifiable {
-    var id = UUID()
+    var id : String
     var name : String
-    var tasks : [ItemModel] 
+    var tasks : [ItemModel]
+    
+    init(id: String = UUID().uuidString, name: String, tasks: [ItemModel]) {
+        self.id = id
+        self.name = name
+        self.tasks = tasks
+    }
 }
 
 

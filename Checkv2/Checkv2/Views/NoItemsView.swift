@@ -39,6 +39,25 @@ import SwiftUI
                             y: animate ? 50 : 30)
                     .scaleEffect(animate ? 1.1 : 1.0)
                     .offset(y: animate ? -7 : 0)
+                   
+                    Spacer()
+                    Spacer()
+                    
+                    
+                    NavigationLink(
+                        destination: AddListView(),
+                        label: {
+                            Text("New List")
+                                .foregroundColor(.white)
+                                .font(.headline)
+                                .frame(height: 60)
+                                .frame(maxWidth: 60)
+                            
+                                .background(animate ? secondaryAccentColor: Color.accentColor)
+                                .cornerRadius(90)
+                            
+                        })
+                    
                 }
                 .multilineTextAlignment(.center)
                 .padding(40)

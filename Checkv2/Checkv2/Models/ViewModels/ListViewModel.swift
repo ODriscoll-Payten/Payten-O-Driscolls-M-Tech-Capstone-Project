@@ -18,66 +18,95 @@ import Foundation
  */
 
 class ListViewModel: ObservableObject {
+    @Published var currentList: ToDoList?
+    
+    @Published var newToDoName: String = ""
+    
     @Published var listNavTitle = "Default List"
     
-    @Published var todoLists: [Page] = [Page(name: "list 1", tasks: [ItemModel(title: "list 1 item 1", isCompleted: false)]), Page(name: "list 2", tasks: [ItemModel(title: "list 2 item 1", isCompleted: false)])]
+//    @Published var todoLists: [Page] = [] {
+//        didSet {
+//            saveItems()
+//        }
+//    }
+//
+//    @Published var currentPage: Page {
+//        didSet {
+//            saveItems()
+//        }
+//    }
+//
+//    @Published var items : [ItemModel] = [] {
+//        didSet {
+//            saveItems()
+//        }
+//    }
     
-    @Published var currentPage: Page
-    
-    @Published var items : [ItemModel] {
-        didSet {
-            saveItems()
-        }
-    }
-    init() {
-       let localCurrentPage = Page(name: "bruh", tasks: [])
-        let localItems : [ItemModel] = localCurrentPage.tasks
-        self.items = localItems
-        self.currentPage = localCurrentPage
-        getItems()
-    }
-    
-    let itemsKey: String = "items_list"
-    
-    
-    func getItems() {
-
-        guard
-            let data = UserDefaults.standard.data(forKey: itemsKey),
-            let savedItems = try? JSONDecoder().decode([ItemModel].self, from: data)
-        else { return }
-        self.items = savedItems
-    }
-    
-    func moveItem(from: IndexSet, to: Int) {
-        items.move(fromOffsets: from, toOffset: to)
-    }
-    
-    func deleteItem(indexSet: IndexSet) {
-        items.remove(atOffsets: indexSet)
-    }
-    
-    func addItem(title: String) {
-        let newItem = ItemModel(title: title, isCompleted: false)
-        items.append(newItem)
-    }
-    
-    func updateItem(item: ItemModel){
-        if let index = items.firstIndex(where: { $0.id == item.id}) {
-            items[index] = item.updateCompletion()
-        }
-    }
-    
-    func saveItems() {
-        if let encodedData = try? JSONEncoder().encode(items) {
-            UserDefaults.standard.set(encodedData, forKey: itemsKey)
-        }
-    }
-    
-    func setItems() {
-        
-        items = currentPage.tasks
-        getItems()
-    }
-    
+//
+//    let itemsKey: String = "items_list"
+//    let pagesKey: String = "pages_list"
+//
+////    func getItems() {
+////
+////
+////        guard
+////            let data2 = UserDefaults.standard.data(forKey: itemsKey),
+////            let savedItems = try? JSONDecoder().decode([ItemModel].self, from: data2)
+////        else { return }
+////        self.items = savedItems
+////    }
+//
+//    func getPages() {
+//
+//                guard
+//                    let data = UserDefaults.standard.data(forKey: pagesKey),
+//                    let savedPages = try? JSONDecoder().decode([Page].self, from: data)
+//                else { return }
+//                self.todoLists = savedPages
+//    }
+//
+//    func moveItem(from: IndexSet, to: Int) {
+//        items.move(fromOffsets: from, toOffset: to)
+//    }
+//
+//    func deleteItem(indexSet: IndexSet) {
+//        items.remove(atOffsets: indexSet)
+//    }
+//
+//    func addItem(title: String) {
+//        let newItem = ItemModel(title: title, isCompleted: false)
+//        items.append(newItem)
+//    }
+//
+//    func addList(title: String) {
+//        let newList = Page(name: title, tasks: [])
+//        todoLists.append(newList)
+//    }
+//
+//    func updateItem(item: ItemModel){
+//        if let index = items.firstIndex(where: { $0.id == item.id}) {
+//            items[index] = item.updateCompletion()
+//        }
+//    }
+//
+//    func saveItems() {
+////        if let encodedItemsData = try? JSONEncoder().encode(items) {
+////            UserDefaults.standard.set(encodedItemsData, forKey: itemsKey)
+////        }
+//
+//        if let encodedPagesData = try? JSONEncoder().encode(todoLists) {
+//            UserDefaults.standard.set(encodedPagesData, forKey: pagesKey)
+//        }
+//
+//
+//    }
+//
+////    func setItems() {
+////
+////        getPages()
+////        items = currentPage.tasks
+////
+////        saveItems()
+////    }
+//
 }
