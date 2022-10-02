@@ -19,6 +19,7 @@ import Foundation
 
 class ListViewModel: ObservableObject {
     @Published var currentList: ToDoList?
+     
     
     @Published var newToDoName: String = ""
     
@@ -83,11 +84,11 @@ class ListViewModel: ObservableObject {
 //        todoLists.append(newList)
 //    }
 //
-//    func updateItem(item: ItemModel){
-//        if let index = items.firstIndex(where: { $0.id == item.id}) {
-//            items[index] = item.updateCompletion()
-//        }
-//    }
+    func updateToDo(toDo: ToDo){
+        if let index = currentList?.toDosArray.firstIndex(where: { $0.id == toDo.id}) {
+            currentList?.toDosArray[index].isCompleted = !toDo.isCompleted
+        }
+    }
 //
 //    func saveItems() {
 ////        if let encodedItemsData = try? JSONEncoder().encode(items) {

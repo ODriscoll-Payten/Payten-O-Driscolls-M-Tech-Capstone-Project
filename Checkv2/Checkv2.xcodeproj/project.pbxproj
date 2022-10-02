@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4A2C160028E4F48700D5CFD7 /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C15FF28E4F48700D5CFD7 /* AddListView.swift */; };
+		4A3D287A28E89214009E264D /* SessionPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D287928E89214009E264D /* SessionPopupView.swift */; };
+		4A3D287F28E894E7009E264D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D287E28E894E7009E264D /* Extensions.swift */; };
+		4A3D288128E8A971009E264D /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D288028E8A971009E264D /* TimerViewModel.swift */; };
 		4A54AD6C28D23C5C008FA74B /* Checkv2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54AD6B28D23C5C008FA74B /* Checkv2App.swift */; };
 		4A54AD7028D23C5C008FA74B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A54AD6F28D23C5C008FA74B /* Assets.xcassets */; };
 		4A54AD7328D23C5C008FA74B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A54AD7228D23C5C008FA74B /* Preview Assets.xcassets */; };
@@ -49,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		4A2C15FF28E4F48700D5CFD7 /* AddListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
+		4A3D287928E89214009E264D /* SessionPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPopupView.swift; sourceTree = "<group>"; };
+		4A3D287E28E894E7009E264D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4A3D288028E8A971009E264D /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		4A54AD6828D23C5C008FA74B /* Checkv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checkv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A54AD6B28D23C5C008FA74B /* Checkv2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkv2App.swift; sourceTree = "<group>"; };
 		4A54AD6F28D23C5C008FA74B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A3D287D28E894AF009E264D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A3D287E28E894E7009E264D /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4A54AD5F28D23C5C008FA74B = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +141,7 @@
 				4ADDB90E28E5603D006B4777 /* ToDoList+CoreDataClass.swift */,
 				4ADDB90F28E5603D006B4777 /* ToDoList+CoreDataProperties.swift */,
 				4A54AD6B28D23C5C008FA74B /* Checkv2App.swift */,
+				4A3D287D28E894AF009E264D /* Helpers */,
 				4AA8687828D3A14700DC5B49 /* Models */,
 				4A54AD9528D23EF9008FA74B /* Views */,
 				4A54AD6F28D23C5C008FA74B /* Assets.xcassets */,
@@ -165,6 +180,7 @@
 			children = (
 				4A54AD9628D23F15008FA74B /* ListView.swift */,
 				4A54AD9A28D241F5008FA74B /* AddView.swift */,
+				4A3D287928E89214009E264D /* SessionPopupView.swift */,
 				4A2C15FF28E4F48700D5CFD7 /* AddListView.swift */,
 				4ADDB90A28E54C35006B4777 /* UpdateToDoListView.swift */,
 				4A54AD9828D2403C008FA74B /* ListRowView.swift */,
@@ -189,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA8687C28D3AB9B00DC5B49 /* ListViewModel.swift */,
+				4A3D288028E8A971009E264D /* TimerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -330,12 +347,15 @@
 				4ADDB91128E5603D006B4777 /* ToDo+CoreDataProperties.swift in Sources */,
 				4A54AD6C28D23C5C008FA74B /* Checkv2App.swift in Sources */,
 				4ADDB90928E53E99006B4777 /* PersistenceController.swift in Sources */,
+				4A3D287F28E894E7009E264D /* Extensions.swift in Sources */,
 				4ADDB90B28E54C35006B4777 /* UpdateToDoListView.swift in Sources */,
 				4A2C160028E4F48700D5CFD7 /* AddListView.swift in Sources */,
 				4A54AD9728D23F15008FA74B /* ListView.swift in Sources */,
 				4ADDB91028E5603D006B4777 /* ToDo+CoreDataClass.swift in Sources */,
+				4A3D288128E8A971009E264D /* TimerViewModel.swift in Sources */,
 				4ADDB91328E5603D006B4777 /* ToDoList+CoreDataProperties.swift in Sources */,
 				4AA8687F28D3EDEA00DC5B49 /* NoItemsView.swift in Sources */,
+				4A3D287A28E89214009E264D /* SessionPopupView.swift in Sources */,
 				4A54AD9928D2403C008FA74B /* ListRowView.swift in Sources */,
 				4AA868BC28DB8DD300DC5B49 /* ToDoList.xcdatamodeld in Sources */,
 				4AA8688128D407B400DC5B49 /* PageModel.swift in Sources */,

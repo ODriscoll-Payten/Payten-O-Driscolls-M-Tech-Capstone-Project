@@ -31,6 +31,19 @@ extension ToDoList {
         }
     }
     
+    public var completedArray: [ToDo]? {
+        let toDos = toDosArray
+        
+       return toDos.filter({ return $0.isCompleted == true})
+    }
+    
+    public var incompleteArray: [ToDo]? {
+        let toDos = toDosArray
+        
+       return toDos.filter({ return $0.isCompleted == false})
+    }
+
+    
 
 }
 
