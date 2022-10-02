@@ -28,6 +28,9 @@ struct ListView: View {
     
     @State var completedSectionIsVisible = true
     
+    @State var initialCompletedTasks: Int = 0
+    
+    @State var popupNumber = 0
     
     
     var incompleteSectionIsVisible = true
@@ -35,7 +38,7 @@ struct ListView: View {
     let breakLabelText = "Take a break for:"
     let workLabelText = "Next Break In:"
     var isGoalCompleted : Bool {
-        if listViewModel.currentList?.completedArray?.count ?? 0 == numberOfTasksSelected {
+        if listViewModel.currentList?.completedArray?.count ?? 0 == initialCompletedTasks + numberOfTasksSelected {
              return true
         } else {
             return false
@@ -44,6 +47,7 @@ struct ListView: View {
     
     
     var body: some View {
+        
         NavigationView {
         ZStack {
             if listViewModel.currentList?.toDosArray.isEmpty == true {
@@ -85,15 +89,19 @@ struct ListView: View {
                                     Button("Continue", role: .cancel) {
                                         timerVm.reset()
                                         numberOfTasksSelected = -1
+                                        initialCompletedTasks = -100
+                                        popupNumber = 0
                                     }
                                 }
                         }
                     }
+                    
                     .padding()
                     .frame(width: 150)
                     .background(.thinMaterial)
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(secondaryAccentColor, lineWidth: 4))
+                    
                     
                     Section("To-Do") {
                         ForEach(listViewModel.currentList?.incompleteArray ?? []) { item in
@@ -124,12 +132,18 @@ struct ListView: View {
                                         print(item.isCompleted)
                                     }
                                 }
+                                
                         }
+                        
                         .onDelete(perform: deleteToDo(at:))
+                        
                     }
                     
                 }
+                .onAppear(perform: addAnimation)
                 .listStyle(PlainListStyle())
+                
+                
                 VStack{
                     Spacer()
                     HStack{
@@ -157,13 +171,15 @@ struct ListView: View {
                         .offset(y: animate ? -7 : 0)
                     }
                     .padding(20)
-                }
+                }.onAppear(perform: addAnimation)
                 
                 .simultaneousGesture(TapGesture().onEnded {
                     
                 })
             }
         }
+        
+            
         .onReceive(timer) { _ in
             timerVm.updateCountdown()
             if isGoalCompleted {
@@ -180,7 +196,7 @@ struct ListView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Stepper("I will complete \(numberOfTasksSelected) To - Do's", value: $numberOfTasksSelected, in: 0...(listViewModel.currentList?.toDosArray.count)!)
+                    Stepper("I will complete \(popupNumber) To - Do's", value: $popupNumber, in: 0...(listViewModel.currentList?.incompleteArray!.count)!)
                 }
                 Spacer()
             }
@@ -190,6 +206,8 @@ struct ListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         withAnimation{
+                            numberOfTasksSelected = popupNumber
+                            initialCompletedTasks = listViewModel.currentList?.completedArray?.count ?? 0
                             showPopup.toggle()
                             timerVm.start(minutes: timerVm.workTime)
                         }
@@ -236,6 +254,13 @@ struct ListView: View {
             .onAppear {
                 addAnimation()
                 listViewModel.currentList = listViewModel.currentList
+                
+                if toDoLists.isEmpty {
+                    let defaultList = ToDoList(context: viewContext)
+                    defaultList.name = "Welcome!"
+                    listViewModel.currentList = defaultList
+                }
+                
                 if listViewModel.currentList == nil {
                     listViewModel.currentList = toDoLists.first
                 }
@@ -246,8 +271,10 @@ struct ListView: View {
                     completedSectionIsVisible = true
                 }
             }
-        
+       
+            .background(Color.purple)
     }
+        
     
     func startApp() {
         

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /*
  CRUD FUNCTIONS
@@ -19,11 +20,25 @@ import Foundation
 
 class ListViewModel: ObservableObject {
     @Published var currentList: ToDoList?
-     
+    @Published var animate: Bool = false
+
     
     @Published var newToDoName: String = ""
     
     @Published var listNavTitle = "Default List"
+    
+    func addAnimation() {
+        guard !animate else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        withAnimation(
+                        Animation
+                            .easeInOut(duration: 2.0)
+                            .repeatForever()
+                        ) {
+                            self.animate.toggle()
+            }
+        }
+    }
     
 //    @Published var todoLists: [Page] = [] {
 //        didSet {

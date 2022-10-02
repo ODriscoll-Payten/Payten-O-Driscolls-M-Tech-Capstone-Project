@@ -33,6 +33,7 @@ struct AddListView: View {
                     
                     addToDoList()
                     textFieldText = ""
+                    listViewModel.addAnimation()
                 }, label: {
                     Text("Create List".uppercased())
                         .foregroundColor(.white)

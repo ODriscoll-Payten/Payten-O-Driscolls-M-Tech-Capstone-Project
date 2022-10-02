@@ -52,6 +52,7 @@ struct AddView: View {
             addToDo()
             
             presentationMode.wrappedValue.dismiss()
+            listViewModel.addAnimation()
         }
     }
     
