@@ -22,6 +22,7 @@ struct AddView: View {
     
     var body: some View {
         ScrollView {
+            
             VStack {
                 TextField("Type something here..", text: $listViewModel.newToDoName)
                     .padding(.horizontal)
@@ -50,9 +51,9 @@ struct AddView: View {
         if textIsAppropriate() {
             
             addToDo()
-            
+            listViewModel.newToDoName = ""
             presentationMode.wrappedValue.dismiss()
-            listViewModel.addAnimation()
+            
         }
     }
     

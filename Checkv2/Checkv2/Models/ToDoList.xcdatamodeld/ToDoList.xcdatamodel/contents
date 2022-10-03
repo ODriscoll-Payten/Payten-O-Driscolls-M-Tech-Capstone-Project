@@ -6,6 +6,7 @@
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDoList" inverseName="toDos" inverseEntity="ToDoList"/>
     </entity>
     <entity name="ToDoList" representedClassName="ToDoList" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="toDos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDo" inverseName="list" inverseEntity="ToDo"/>
     </entity>

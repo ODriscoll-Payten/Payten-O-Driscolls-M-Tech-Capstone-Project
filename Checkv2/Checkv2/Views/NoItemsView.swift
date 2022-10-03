@@ -15,10 +15,10 @@ import SwiftUI
         var body: some View {
             ScrollView {
                 VStack(spacing: 10) {
-                    Text("no items")
+                    Text("No Items")
                         .font(.title)
                         .fontWeight(.semibold)
-                    Text("Use the add button to add items to your to do list")
+                    Text("Use the add button above or below to add items to your to do list")
                         .padding(.bottom, 20)
                     NavigationLink(
                         destination: AddView(),
@@ -44,19 +44,19 @@ import SwiftUI
                     Spacer()
                     
                     
-                    NavigationLink(
-                        destination: AddListView(),
-                        label: {
-                            Text("New List")
-                                .foregroundColor(.white)
-                                .font(.headline)
-                                .frame(height: 60)
-                                .frame(maxWidth: 60)
-                            
-                                .background(animate ? secondaryAccentColor: Color.accentColor)
-                                .cornerRadius(90)
-                            
-                        })
+//                    NavigationLink(
+//                        destination: AddListView(),
+//                        label: {
+//                            Text("New List")
+//                                .foregroundColor(.white)
+//                                .font(.headline)
+//                                .frame(height: 60)
+//                                .frame(maxWidth: 60)
+//
+//                                .background(animate ? secondaryAccentColor: Color.accentColor)
+//                                .cornerRadius(90)
+//
+//                        })
                     
                 }
                 .multilineTextAlignment(.center)
@@ -78,6 +78,8 @@ import SwiftUI
                 }
             }
         }
+        
+        
     }
 
     struct NoItemsView_Previews: PreviewProvider {

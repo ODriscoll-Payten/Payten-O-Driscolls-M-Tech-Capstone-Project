@@ -2,7 +2,7 @@
 //  ToDoList+CoreDataProperties.swift
 //  Checkv2
 //
-//  Created by Payten O'Driscoll on 9/28/22.
+//  Created by Payten O'Driscoll on 10/2/22.
 //
 //
 
@@ -17,7 +17,12 @@ extension ToDoList {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var dateCreated: Date?
     @NSManaged public var toDos: NSSet?
+    
+    
+    
+    
     
     public var unwrappedName: String {
         name ?? "Unknown name"
@@ -42,8 +47,6 @@ extension ToDoList {
         
        return toDos.filter({ return $0.isCompleted == false})
     }
-
-    
 
 }
 

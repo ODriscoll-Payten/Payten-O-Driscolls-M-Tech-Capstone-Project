@@ -2,7 +2,7 @@
 //  ToDo+CoreDataProperties.swift
 //  Checkv2
 //
-//  Created by Payten O'Driscoll on 9/28/22.
+//  Created by Payten O'Driscoll on 10/2/22.
 //
 //
 
@@ -16,10 +16,11 @@ extension ToDo {
         return NSFetchRequest<ToDo>(entityName: "ToDo")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var isCompleted: Bool
+    @NSManaged public var name: String?
     @NSManaged public var list: ToDoList?
 
+    
     public var unwrappedName: String {
         name ?? "unknown todo name"
     }

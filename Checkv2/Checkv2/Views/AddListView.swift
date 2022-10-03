@@ -33,7 +33,8 @@ struct AddListView: View {
                     
                     addToDoList()
                     textFieldText = ""
-                    listViewModel.addAnimation()
+                    listViewModel.currentList = toDoLists.first
+                    
                 }, label: {
                     Text("Create List".uppercased())
                         .foregroundColor(.white)
@@ -71,6 +72,7 @@ struct AddListView: View {
         withAnimation {
             let newToDoList = ToDoList(context: viewContext)
             newToDoList.name = textFieldText
+            newToDoList.dateCreated = Date()
             PersistenceController.shared.saveContext()
         }
     }
