@@ -275,7 +275,7 @@ struct ListView: View {
         .navigationTitle(listViewModel.currentList?.name ?? "Nothing")
         
         .navigationBarItems(
-            leading: EditButton(),
+            leading: EditButton().hidden(),
             trailing:
                 NavigationLink("Add", destination: AddView())
                
